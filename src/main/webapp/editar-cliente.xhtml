@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <?xml version='1.0' encoding='UTF-8' ?>
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:h="http://xmlns.jcp.org/jsf/html"
+              xmlns:f="http://xmlns.jcp.org/jsf/core">
+            <h:head>
+                <title>Facelet Title</title>
+            </h:head>
+            <h:body>
+                <f:view>
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Id"/>
+                            <h:inputText value="#{clienteBean.cliente.id}"/>
+                            <h:outputLabel value="Nome"/>
+                            <h:inputText value="#{clienteBean.cliente.nome}"/>
+
+                            <h:outputLabel value="Sobrenome"/>
+
+                            <h:inputText value="#{clienteBean.cliente.sobrenome}"/>
+                            <h:outputLabel value="Telefone"/>
+                            <h:inputText value="#{clienteBean.cliente.telefone}"/>
+                            <h:outputLabel value="Email"/>
+                            <h:inputText value="#{clienteBean.cliente.email}"/>
+                            
+                            <h:selectOneMenu value = "#{clienteBean.cliente.hobbies}">
+                                <f:selectItem itemValue = "chibia" itemLabel = "Chibia" />
+                                <f:selectItem itemValue = "matala" itemLabel = "Matala" />
+                                <f:selectItem itemValue = "chicomba" itemLabel = "Chicomba" />
+                                </h:selectOneMenu>>
+
+                            <h:outputLabel value="Bairro"/>
+                            <h:inputText value="#{clienteBean.cliente.bairro}"/>
+
+                            <h:outputLabel value="Rua"/>
+                            <h:inputText value="#{clienteBean.cliente.rua}"/>
+                            <h:outputLabel value="Casa"/>
+                            <h:inputText value="#{clienteBean.cliente.casa}"/>
+
+
+
+
+                            <h:selectManyCheckbox value = "#{clienteBean.cliente.hobbies}" layout="pageDirection">
+                                <f:selectItem itemValue = "deposrto" itemLabel = "Deposrto" />
+                                <f:selectItem itemValue = "cinema" itemLabel = "Cinema" />
+                                <f:selectItem itemValue = "leitura" itemLabel = "Leitura" />
+                                <f:selectItem itemValue = "cozinha" itemLabel = "Cozinha" />
+                                <f:selectItem itemValue = "montanha" itemLabel = "Montanha" />
+                            </h:selectManyCheckbox>
+
+                        </h:panelGrid>
+                        <h:commandButton value="Guardar" action="#{clienteBean.finishEditar}"/>
+
+                    </h:form>
+                </f:view>
+
+                
+
+            </h:body>
+        </html>
+
+
+    </h:body>
+</html>
+

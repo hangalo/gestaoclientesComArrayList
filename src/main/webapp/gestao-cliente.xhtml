@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Id"/>
+                    <h:inputText value="#{clienteBean.cliente.id}"/>
+                    <h:outputLabel value="Nome"/>
+                    <h:inputText value="#{clienteBean.cliente.nome}"/>
+
+                    <h:outputLabel value="Sobrenome"/>
+
+                    <h:inputText value="#{clienteBean.cliente.sobrenome}"/>
+                    <h:outputLabel value="Telefone"/>
+                    <h:inputText value="#{clienteBean.cliente.telefone}"/>
+                    <h:outputLabel value="Email"/>
+                    <h:inputText value="#{clienteBean.cliente.email}"/>
+                    <h:outputLabel value="Municipio"/>
+                    <h:panelGroup>
+                        <h:selectOneMenu value = "#{clienteBean.cliente.municipio}">
+                            <f:selectItem itemValue = "chibia" itemLabel = "Chibia" />
+                            <f:selectItem itemValue = "matala" itemLabel = "Matala" />
+                            <f:selectItem itemValue = "chicomba" itemLabel = "Chicomba" />
+                        </h:selectOneMenu>
+
+                        <h:outputLabel value="Bairro"/>
+                        <h:inputText value="#{clienteBean.cliente.bairro}"/>
+
+                        <h:outputLabel value="Rua"/>
+                        <h:inputText value="#{clienteBean.cliente.rua}"/>
+                        <h:outputLabel value="Casa"/>
+                        <h:inputText value="#{clienteBean.cliente.casa}"/>
+
+                    </h:panelGroup>
+
+
+                    <h:selectManyCheckbox value = "#{clienteBean.cliente.hobbies}" layout="pageDirection">
+                        <f:selectItem itemValue = "deposrto" itemLabel = "Deposrto" />
+                        <f:selectItem itemValue = "cinema" itemLabel = "Cinema" />
+                        <f:selectItem itemValue = "leitura" itemLabel = "Leitura" />
+                        <f:selectItem itemValue = "cozinha" itemLabel = "Cozinha" />
+                        <f:selectItem itemValue = "montanha" itemLabel = "Montanha" />
+                    </h:selectManyCheckbox>
+
+                </h:panelGrid>
+                <h:commandButton value="Guardar" action="#{clienteBean.guardar}"/>
+
+            </h:form>
+        </f:view>
+
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{clienteBean.clientes}" var="item">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+
+                        #{item.id}
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">Nome</f:facet>
+
+                        #{item.nome}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Sobrenome</f:facet>
+
+                        #{item.sobrenome}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Telefone</f:facet>
+
+                        #{item.telefone}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Email</f:facet>
+
+                        #{item.email}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Municipio</f:facet>
+
+                        #{item.municipio}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Bairro</f:facet>
+
+                        #{item.bairro}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Rua</f:facet>
+
+                        #{item.rua}
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Casa</f:facet>
+
+                        #{item.casa}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Hobbies</f:facet>
+
+                        #{item.hobbies}
+
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Actions"/>
+                        </f:facet>
+                        <h:commandLink value="delete" action="#{clienteBean.eliminar()}">
+                            <f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{item}"/>
+                        </h:commandLink>
+                        <h:outputText value="/"/>
+                        <h:commandLink value="edit" action="#{clienteBean.chamarFormEditar()}">
+                            <f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{item}"/>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
+
